@@ -1,0 +1,156 @@
+*{
+	margin:0;
+	font-family: 'Roboto', sans-serif;
+}
+.form_msg_modal{
+	position: fixed;
+	height: 100vh;
+	background: rgba(0,0,0,0.8);
+	width: 100%;
+	top: -100%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	transition: 0.2s ease-in-out;
+}
+.form_msg_modal .modal-content{
+	text-align: center;
+    width: 50%;
+    background: #fff;
+    margin: 50px auto;
+    position: relative;
+    border-radius: 4px;
+}
+.close-modal{
+	position: absolute;
+	top:10px;
+	right: 10px;
+	font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.hide{
+	top:-100%;
+}
+.unhide{
+	top:0;
+}
+.form-msg{
+    margin: 0 auto;;
+    width: 60%;
+    padding: 40px 0;
+}
+.form-msg img{
+	width: 40px;
+    display: block;
+	margin:10px auto;
+}
+.gid, .tid{
+	margin: 20px auto;
+    border: 2px dashed #41ad49;
+    display: table;
+    padding: 10px;
+}
+.section-content{
+	display: table;
+	margin: 20px auto 0;
+	width: 100%;
+    text-align: center; 
+}
+form{
+	width: 40%;
+    display: table;
+    margin: 10px auto;
+}
+form input, form select{
+	width: 100%;
+	border: none;
+	box-sizing: border-box;
+	margin: 5px auto;
+	padding: 10px;
+	color:#000;
+}
+form input:focus{
+	background: #ececec;
+	outline: none;
+}
+form select:focus{
+	outline: none;
+}
+input[type="button"]{
+	cursor: pointer;
+	font-weight: bold;
+	background: #b5b4b4;
+}
+form p{
+	text-align: left;
+	font-size: 10px;
+    font-weight: bold;
+}
+.mrd-gid{
+	width: 100%;
+}
+.mrd-gid input{
+	width: 88%;
+    float: right;
+    border-left: none;
+}
+.mrd-gid input[value="TXTRA"], .mrd-gid input[value="₹"]{
+	width: 12%;
+    float: left;
+    border-right: none;
+    border-left: none;
+    background: #ececec;
+    font-weight: bold;
+}
+.mrd-gid input[value="₹"]{
+	text-align: right;
+}
+.rd-form{
+	margin:0 auto;
+	display: none;
+}
+option{
+	padding: 5px;
+}
+body{
+	background: #40808f;
+}
+h1{
+	text-align: center;
+	margin: 10px auto;
+}
+td, th{
+	border:1px solid #fff;
+	padding: 10px;
+}
+th{
+	background: #0a5161;
+    color: white;
+    font-weight: normal;
+}
+table{
+	margin: 0 auto;
+	display: table;
+	border:1px solid #fff;
+	border-collapse: collapse;
+	padding: 10px;
+    font-size: 14px;
+}
+.teams{
+	display: table;
+	margin: 0 auto;
+}
+.played, .view-gid{
+	border: none;
+    padding: 8px;
+    cursor: pointer;
+    background: #ffffff;
+    border-radius: 3px;
+    box-sizing: border-box;
+    transition: 0.4s ease-in-out;
+}
+.played:hover, .view-gid:hover{
+	background: #0a5161;
+	color:white;
+}
