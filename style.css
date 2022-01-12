@@ -1,6 +1,8 @@
 *{
 	margin:0;
-	font-family: 'Roboto', sans-serif;
+}
+section{
+	font-family: 'Montserrat';
 }
 .form_msg_modal{
 	position: fixed;
@@ -17,9 +19,12 @@
 	text-align: center;
     width: 50%;
     background: #fff;
-    margin: 50px auto;
-    position: relative;
+    position: absolute;
     border-radius: 4px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	font-family: 'Montserrat';
 }
 .close-modal{
 	position: absolute;
@@ -50,17 +55,76 @@
     border: 2px dashed #41ad49;
     display: table;
     padding: 10px;
+    color: #000;
+    font-size: 3rem;
+    font-weight: bold;
 }
 .section-content{
 	display: table;
-	margin: 20px auto 0;
 	width: 100%;
     text-align: center; 
+	background: #fff9e5;
+	font-family: 'Montserrat' !important;
 }
-form{
-	width: 40%;
-    display: table;
-    margin: 10px auto;
+.section-content h1{
+	font-family: 'Montserrat';
+}
+#participant-details{
+	width: 80%;
+    display: grid;
+    margin: 4rem auto;
+    grid-template-columns: 1fr 1fr;
+	grid-gap: 2rem;
+}
+#participant-details div{
+	position: relative;
+}
+#participant-details input,
+#participant-details select,
+.participant-login-panel input,
+.participant-login-panel textarea,
+#gid-form input,
+#gid-form select,
+#rd-form input,
+#crd-form input,
+#crd-form select{
+	border: 2px solid black;
+    border-radius: 1.5rem;
+    height: 6rem;
+    font-size: 2rem;
+    font-family: 'Montserrat';
+}
+#participant-details input:focus ~ .floating-label,
+#participant-details input:not(:focus):valid ~ .floating-label,
+.participant-login-panel input:focus ~ .floating-label,
+.participant-login-panel input:not(:focus):valid ~ .floating-label,
+.participant-login-panel textarea:focus ~ .floating-label,
+.participant-login-panel textarea:not(:focus):valid ~ .floating-label{
+	top: -4px;
+    left: 20px;
+    font-size: 16px;
+    opacity: 1;
+    background: #fff;
+    padding: 0 7px;
+    font-family: 'Montserrat';
+    color: black;
+}
+.floating-label {
+	position: absolute;
+	pointer-events: none;
+	top: 24px;
+    left: 20px;
+    font-size: 16px;
+    opacity: 1;
+    background: #fff;
+    padding: 0 7px;
+    font-family: 'Montserrat';
+    color: black;
+	transition: .2s ease-in-out;
+  }
+#participant-details input[value="Submit"]{
+	grid-column-end: 3;
+    grid-column-start: 1;
 }
 form input, form select{
 	width: 100%;
@@ -71,16 +135,20 @@ form input, form select{
 	color:#000;
 }
 form input:focus{
-	background: #ececec;
 	outline: none;
 }
 form select:focus{
 	outline: none;
 }
-input[type="button"]{
+input[type="button"],
+input[type="submit"]{
 	cursor: pointer;
 	font-weight: bold;
-	background: #b5b4b4;
+	background: #ff7851;
+}
+input[type="button"]:hover,
+input[type="submit"]:hover{
+	background: #e66a46
 }
 form p{
 	text-align: left;
@@ -90,12 +158,12 @@ form p{
 .mrd-gid{
 	width: 100%;
 }
-.mrd-gid input{
+.mrd-gid input, .rd-input input{
 	width: 88%;
     float: right;
     border-left: none;
 }
-.mrd-gid input[value="TXTRA"], .mrd-gid input[value="₹"]{
+.mrd-gid input[value="TVT"], .rd-input input[value="₹"]{
 	width: 12%;
     float: left;
     border-right: none;
@@ -103,7 +171,7 @@ form p{
     background: #ececec;
     font-weight: bold;
 }
-.mrd-gid input[value="₹"]{
+.rd-input input[value="₹"]{
 	text-align: right;
 }
 .rd-form{
@@ -124,10 +192,26 @@ td, th{
 	border:1px solid #fff;
 	padding: 10px;
 }
+
+td {
+	padding: 1.5rem !important;
+	background: #f9e9b6;
+	border: none;
+	text-align: center;
+}
+table tbody{
+	box-shadow: 0px 2px 5px 1px rgb(194 194 194);
+}
+table tbody tr:nth-child(even) td{
+	background: #f7f0da;
+}
 th{
 	background: #0a5161;
     color: white;
     font-weight: normal;
+    padding: 1.5rem 1rem !important;
+    text-align: center !important;
+    border: none;
 }
 table{
 	margin: 0 auto;
@@ -136,6 +220,8 @@ table{
 	border-collapse: collapse;
 	padding: 10px;
     font-size: 14px;
+	width: 70%;
+	border: none;
 }
 .teams{
 	display: table;
@@ -153,4 +239,341 @@ table{
 .played:hover, .view-gid:hover{
 	background: #0a5161;
 	color:white;
+}
+
+.backButton{
+	text-decoration: none;
+	background: white;
+	padding: 5px;
+	color: black;
+	border-radius: 2px;
+	margin-left:15px;
+	text-transform:uppercase;
+	margin-top: 10px;
+	top: 50px;
+    position: relative;
+}
+.login-nav{
+	position: relative;
+}
+.login-nav:hover .sub-login-nav{
+	transform: scale(1,1);
+}
+.sub-login-nav{
+	position: absolute;
+    transform: scale(1,0);
+    padding: 1rem;
+    text-align: right;
+    list-style: none;
+    background: #fff;
+    right: 0px;
+    border-radius: 5px;
+    width: 18rem;
+}
+.sub-login-nav li{
+	margin: 0.5rem 0;
+}
+.sub-login-nav li a{
+	color: #339193;
+	font-family: 'Montserrat', sans-serif;
+}
+.participant-login-panel{
+	width: 60%;
+	margin: 2rem auto;
+	font-family: 'Montserrat';
+}
+.participant-login-panel div{
+	margin-top: 1rem;
+    margin-bottom: 1rem;
+	position: relative;
+}
+.participant-login-section{
+	background: #fff9e5;
+	padding-bottom: 6rem;
+}
+.participant-login-section h1{
+	margin: 0 auto;
+	padding: 3rem 0 2rem;
+}
+
+.dashboard-page{
+	background: #fff9e5;
+    max-width: 1200px;
+    margin: 0 auto;
+	overflow-x: hidden;
+}
+.usermenu{
+	height: auto;
+    display: flex;
+    justify-content: space-between;
+	margin: 2rem auto;
+	position: relative;
+	list-style-type: none;
+	font-family: 'Montserrat';
+	padding: 0;
+}
+.usermenu .text-logo{
+	font-family: 'Bungee Inline', cursive;
+    font-size: 3rem;
+    color: #ee5452;
+    pointer-events: none;
+	margin: 0;
+}
+.usermenu .username{
+	margin-right: 1rem;
+	font-weight: bold;
+    font-size: 2rem;
+}
+.usermenu li{
+	flex-basis: 20%;
+}
+.usermenu li:nth-child(2){
+	text-align: center;
+}
+.usermenu li:nth-child(3){
+	text-align: right;
+}
+.usermenu img{
+	width: 4rem;
+    border-radius: 50%;
+    border: 1px solid;
+    padding: 2px;
+    background: #ffe9a2;
+    cursor: pointer;
+}
+.logout-section{
+	transform: scale(1,0);
+    position: absolute;
+    right: 0;
+    bottom: -3.4rem;
+    background: #ffe9a2;
+    padding: 7px 10px;
+    color: #000;
+    list-style: none;
+    width: 9rem;
+    text-align: right;
+}
+.logout-section a{
+	color: #000;
+	text-decoration: none;
+}
+.usermenu .profile-icon:hover .logout-section{
+	transform: scale(1,1);
+}
+.activate{
+	display: block;
+}
+.deactivate{
+	display: none;;
+}
+.tab-button-section{
+	width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: .1rem;
+}
+.tab-button-section button{
+	height: 5rem;
+    border-radius: 5px;
+    background: #ffe9a2;
+    box-shadow: 0px -6px 6px -7px rgb(136 129 129);
+    border: 1px solid #81660c;
+    border-bottom: none;
+	font-size: 2rem;
+	border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+	position: relative;
+}
+.tab-button-section button:first-child::before,
+.tab-button-section button:nth-child(2)::before{
+	position: absolute;
+    background: black;
+    content: "";
+    height: 1px;
+    width: 100%;
+    bottom: 0;
+}
+.tab-button-section button:first-child::before{
+	right: 100%;
+	overflow: hidden;
+}
+.tab-button-section button:nth-child(2)::before{
+	left: 100%;
+	overflow: hidden;
+}
+.active-tab{
+	background: #fff9e5 !important ;
+}
+
+.user_data,
+.user_events,
+.other_participants{
+	margin: 2rem auto 6rem;
+}
+.contact-form h2{
+	color: #000;
+    font-size: 2.2rem;
+    margin: 2rem 0;
+}
+textarea{
+	border: 2px solid black;
+    border-radius: 1.5rem;
+    font-size: 2rem !important;
+    font-family: Montserrat;
+    width: 847px;
+    margin: 0px;
+    height: 100px;
+    max-width: 100%;
+    min-height: 10rem;
+	padding: 2rem 1rem;
+}
+textarea:focus{
+	outline: none;
+}
+.blank-msg{
+	text-align: center;
+    background: #fbedbe;
+    width: 70%;
+    margin: 0 auto;
+    height: 10rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px 1px rgb(194 194 194);
+}
+.loginError{
+	color: red;
+    padding: 1rem !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.admin-desk,
+.crd-desk{
+	background: #fff9e5;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+#gid-form,
+#rd-form,
+#crd-form{
+	width: 80%;
+    margin: 4rem auto;
+}
+#gid-form .mrd-gid input:nth-child(1),
+#rd-form .rd-input input:nth-child(1){
+	border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+	text-align: center;
+}
+#gid-form .mrd-gid input:nth-child(2),
+#rd-form .rd-input input:nth-child(2){
+	border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+}
+.instruction{
+	width: 60%;
+    margin: 2rem auto;
+    font-style: italic;
+	text-align: center;
+}
+.rd-content .instruction{
+	font-size: 1.5rem;
+    top: 1rem;
+    font-weight: bold;
+    position: relative;
+}
+.crd-desk .teams{
+	width: 100%;
+}
+.crd-desk{
+	font-family: 'Montserrat' !important;
+}
+.crd-desk .teams table{
+	font-weight: bold;
+	font-family: 'Montserrat';
+}
+.crd-desk .teams table tr td:nth-child(4) input,
+.crd-desk .teams table tr td:nth-child(5) input{
+	border: 2px solid black;
+}
+.user_data table tbody{
+	display: flex;
+    width: 60%;
+    margin: 0rem auto;
+}
+.user_data table tbody tr{
+	flex-basis: 50%;
+    flex-direction: column;
+    display: flex;
+}
+.user_data table tbody tr td,
+.user_data table tbody tr th{
+	border-bottom: 1px solid #0a5161;
+	text-align: left !important;
+	font-weight: bold;
+	padding: 1.4rem 2rem!important;
+}
+.user_data table tbody tr td:last-child,
+.user_data table tbody tr th:last-child{
+	border-bottom: none;
+}
+.user_data table tbody tr th{
+	border-bottom: 1px solid #fff;
+	padding: 1.4rem 2rem!important;
+}
+textarea{
+	resize: vertical;
+	height: 20rem !important;
+}
+#status{
+	width: 60%;
+    margin: 0 auto;
+    text-align: center;
+	padding: 2rem;
+}
+#status.success{
+	background: #8ebb8e;
+    color: #fff;
+    border-radius: 6px;
+	animation: status 4s ease forwards;
+}
+#status.error{
+	background: red;
+	color: #fff;
+	animation: status 4s ease forwards;
+	border-radius: 6px;
+}
+@keyframes status {
+	0%{
+		opacity: 1;
+		pointer-events: all;
+	}
+	90%{
+		opacity: 1;
+		pointer-events: all;
+	}
+	100%{
+		opacity: 0;
+		pointer-events: none;
+	}
+}
+.summary{
+	position: fixed;
+    left: 0;
+    top: 45%;
+    background: #ffe9a2;
+    padding: 3rem;
+    border: solid black;
+    border-left: none;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+	font-family: 'Montserrat';
+	font-weight: bold;
+}
+.summary div {
+    font-size: 1.5rem;
 }

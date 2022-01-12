@@ -4,30 +4,22 @@ $('.close-modal').click(function(){
 
 $(document).ready(function(){
 	$('.evnt').on('change',function(){
-		console.log(e);
+		// console.log(e);
 		var e = $(this).val();
 		if(e == 'Code Novice' || e == 'Code Virtuso' || e == 'Web O Mania')
 			$('#amount').val(60);
-		else if(e == 'Code Rumble')
-			$('#amount').val(50);
 		else if(e == 'Coding Combo')
 			$('#amount').val(160);
-		else if(e == 'Prisoner of Azkaban' || e == 'Knights Watch' || e == 'Final Destination' || e == 'El Clasico')
+		else if(e == 'Prisoner of Azkaban' || e == 'Knights Watch' || e == 'El Clasico')
 			$('#amount').val(70);
-		else if(e == 'Fast and Furious')
-			$('#amount').val(60);
 		else if(e == 'Robotics Combo')
-			$('#amount').val(250);
-		else if(e == 'Electro Battleground' || e == 'PES 19 (Onspot)')
+			$('#amount').val(200);
+		else if(e == 'Electro Battleground')
 			$('#amount').val(50);
-		else if(e == 'Wire O Mania')
-			$('#amount').val(40);
 		else if(e == 'NFS' || e == 'FIFA 11')
 			$('#amount').val(60);
 		else if(e == 'PUBG MOBILE (Classic)')
 			$('#amount').val(240);
-		else if(e == 'PUBG MOBILE (Onspot)')
-			$('#amount').val(100);
 		else if(e == 'CS 1.6')
 			$('#amount').val(250);
 		else if(e == 'Gaming Combo')
@@ -53,6 +45,12 @@ $(document).ready(function(){
 		else if(e == 'General Combo')
 			$('#amount').val(80);
 	});
+
+
+
+	//RD Dependend Picklist
+	
+	
 });
 
 
@@ -93,3 +91,33 @@ $(document).ready(function(){
 	// 		}
 	// 	});
 	// }); 
+
+
+
+
+	/* Contact Form Controller*/
+
+	var form = document.getElementById("contact-form");
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        status.innerHTML = "Success! We have received your enquiry. An event volunteer will contact your shortly.";
+		status.classList.remove('error');
+		status.classList.add('success');
+        form[2].value = ''
+      }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+		status.classList.remove('success');
+		status.classList.add('error');
+      });
+    }
+    form.addEventListener("submit", handleSubmit)

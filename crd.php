@@ -3,13 +3,57 @@
 ?>
 <html>
 	<head>
-		<title>CRD | Tech-X-Tra</title>
-		<link href="style.css" rel="stylesheet"></link>
-		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+		<meta charset="UTF-8">
+		<title>Dashboard | MSIT</title>
+		<meta name="description" content="College Fest at the MSIT University Which is known as Technovert">
+
+		<link rel="icon" type="image/png" href="images/logo.png" />
+
+		<!--Custom CSS-->
+		<link rel="stylesheet" href="style.css">
+
+		<!--Font-->
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap" rel="stylesheet">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Awesome Font -->
+		<link href="font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+
+		<!-- Loading CSS -->
+		<link href="CSS/loading.css" rel="stylesheet" type="text/css"/>
+
+		<!-- BootStrap CDN -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link href="CSS/countdown.css" rel="stylesheet" type="text/css"/>
+		<link href="CSS/events.css" rel="stylesheet" type="text/css"/>
+		<link href="Hover-master/css/hover.css" rel="stylesheet" type="text/css"/>
+		<link href="CSS/index.css" rel="stylesheet" type="text/css"/>
+		<link href="CSS/team.css" rel="stylesheet" type="text/css"/> 
+		<link href="CSS/sponsers.css" rel="stylesheet" type="text/css"/>
+		<link href="CSS/footer.css" rel="stylesheet" type="text/css"/>
+		<link href="CSS/contact.css" rel="stylesheet" type="text/css"/>
+		<link href="CSS/gallery.css" rel="stylesheet" type="text/css"/>
+		<link href="CSS/topButton.css" rel="stylesheet" type="text/css"/>
 	</head>
-	<body>
-		<h1>Coordinator Desk - CRD</h1>
-		<form>
+	<body class="crd-desk">
+		<div>
+			<ul class="usermenu">
+				<li><p class="text-logo">Technovert</p></li>
+				<li><h5 class="username">Welcome, Event Co-ordinator<br></h5></li>
+				<li class="profile-icon">
+					<img src="images/user.webp">
+					<ul class="logout-section">
+						<li><a href="crd-login.php">Logout</a></li>
+					</ul>
+				</li>
+			</ul>	
+		</div>
+		<h1>Event Co-ordinator Desk - CRD</h1>
+		<div class="instruction">Instruction: Select <strong>Domain</strong> and <strong>Event</strong> from the dropdown below to view the teams that have participated in the respective events.</div>
+		<form id="crd-form">
 			<select class="crd-domain">
 				<option disabled selected>Select Domain</option>
 				<option>Coding</option>
@@ -26,34 +70,34 @@
 		<div class="teams"></div>
 	</body>
 </html>
-<script>
+ <script>
 	function genEvents()
 	{
 		var crdDomain = $('.crd-domain').val();
 		if(crdDomain == 'Coding')
 		{
 			console.log('true');
-			$('.crd-evnt').html("<option selected disabled>Select Event</option><option>Code Novice</option><option>Code Virtuso</option><option>Web O Mania</option><option>Code Rumble</option><option>Coding Combo</option>");
+			$('.crd-evnt').html("<option selected disabled>Select Event</option><option>Code Novice</option><option>Code Virtuso</option><option>Web O Mania</option>");
 		}	
 		else if(crdDomain == 'Robotics')
 		{
-			$('.crd-evnt').html("<option selected disabled>Select Event</option><option>Prisoner of Azkaban</option><option>Knights Watch</option><option>Final Destination</option><option>El Clasico</option><option>Fast and Furious</option><option>Robotics Combo</option>");
+			$('.crd-evnt').html("<option selected disabled>Select Event</option><option>Prisoner of Azkaban</option><option>Knights Watch</option><option>El Clasico</option>");
 		}
 		else if(crdDomain == 'Electrical')
 		{
-			$('.crd-evnt').html("<option selected disabled>Select Event</option><option>Electro Battleground</option><option>Wire O Mania</option>");
+			$('.crd-evnt').html("<option selected disabled>Select Event</option><option>Electro Battleground</option>");
 		}
 		else if(crdDomain == 'Gaming')
 		{
-			$('.crd-evnt').html("<option selected disabled>Select Event</option><option>PUBG MOBILE (Classic)</option><option>PUBG MOBILE (Onspot)</option><option>NFS</option><option>FIFA 11</option><option>CS 1.6</option><option>PES 19 (Onspot)</option><option>Gaming Combo</option>");
+			$('.crd-evnt').html("<option selected disabled>Select Event</option><option>PUBG MOBILE (Classic)</option><option>NFS</option><option>FIFA 11</option><option>CS 1.6</option>");
 		}
 		else if(crdDomain == 'Civil')
 		{
-			$('.crd-evnt').html("<option selected disabled>Select Event</option><option>Setu Bandhan</option><option>Track O Treasure</option><option>Mega Arch</option><option>Civil Combo</option>");
+			$('.crd-evnt').html("<option selected disabled>Select Event</option><option>Setu Bandhan</option><option>Track O Treasure</option><option>Mega Arch</option>");
 		}
 		else if(crdDomain == 'General')
 		{
-			$('.crd-evnt').html("<option selected disabled>Select Event</option><option>Carrom</option><option>Chess</option><option>Table Tennis</option><option>Darts</option><option>Photography</option><option>Videography</option><option>B-Plan</option><option>Innovation Challenge</option><option>General Combo</option>");
+			$('.crd-evnt').html("<option selected disabled>Select Event</option><option>Carrom</option><option>Chess</option><option>Table Tennis</option><option>Darts</option><option>Photography</option><option>Videography</option><option>B-Plan</option><option>Innovation Challenge</option>");
 		}
 	}
 	function showData()
